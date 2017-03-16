@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import system.entity.Payment;
+import system.entity.form.PaymentForm;
 import system.service.PaymentService;
 
 import javax.validation.Valid;
@@ -17,7 +18,7 @@ public class PaymentController {
     PaymentService paymentService;
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<Payment> save(@RequestBody @Valid Payment payment) {
+    public ResponseEntity<Payment> save(@RequestBody @Valid PaymentForm payment) {
         return new ResponseEntity<>(paymentService.save(payment), HttpStatus.CREATED);
     }
 

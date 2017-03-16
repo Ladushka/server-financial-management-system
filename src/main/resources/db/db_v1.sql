@@ -11,13 +11,13 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 -- -----------------------------------------------------
 -- Schema mydb
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
-USE `mydb` ;
+CREATE SCHEMA IF NOT EXISTS `finsystem` DEFAULT CHARACTER SET utf8 ;
+USE `finsystem` ;
 
 -- -----------------------------------------------------
 -- Table `mydb`.`category`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`category` (
+CREATE TABLE IF NOT EXISTS `finsystem`.`category` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`),
@@ -25,10 +25,11 @@ CREATE TABLE IF NOT EXISTS `mydb`.`category` (
 ENGINE = InnoDB;
 
 
+
 -- -----------------------------------------------------
 -- Table `mydb`.`subcategory`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`subcategory` (
+CREATE TABLE IF NOT EXISTS `finsystem`.`subcategory` (
   `name` VARCHAR(45) NOT NULL,
   `id_category` INT NOT NULL,
   `id` INT NOT NULL AUTO_INCREMENT,
@@ -37,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`subcategory` (
   UNIQUE INDEX `id_UNIQUE` (`id` ASC),
   CONSTRAINT `subcategory`
     FOREIGN KEY (`id_category`)
-    REFERENCES `mydb`.`category` (`id`)
+    REFERENCES `finsystem`.`category` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -46,7 +47,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`payment`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`payment` (
+CREATE TABLE IF NOT EXISTS `finsystem`.`payment` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `id_category` INT NOT NULL,
   `id_subcategory` INT NULL,
@@ -59,12 +60,12 @@ CREATE TABLE IF NOT EXISTS `mydb`.`payment` (
   INDEX `subcat_idx` (`id_subcategory` ASC),
   CONSTRAINT `category`
     FOREIGN KEY (`id_category`)
-    REFERENCES `mydb`.`category` (`id`)
+    REFERENCES finsystem.`category` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `subcat`
     FOREIGN KEY (`id_subcategory`)
-    REFERENCES `mydb`.`subcategory` (`id`)
+    REFERENCES `finsystem`.`subcategory` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -73,7 +74,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`money`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`money` (
+CREATE TABLE IF NOT EXISTS `finsystem`.`money` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `sum` BIGINT(20) NOT NULL,
   `type` VARCHAR(45) NOT NULL,
@@ -85,7 +86,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`receipt`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`receipt` (
+CREATE TABLE IF NOT EXISTS `finsystem`.`receipt` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `data` DATE NOT NULL,
   `sum` BIGINT(20) NOT NULL,

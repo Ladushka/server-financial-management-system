@@ -8,21 +8,21 @@ public class Subcategory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Integer subcategory;
+    private Integer subcategory_id;
 
     @Column(name = "name", nullable = false)
     private String name;
 
     @ManyToOne
-    @JoinColumn(name = "category_id", nullable = false)
+    @JoinColumn(name = "id_category", nullable = false)
     private Category category;
 
-    public Integer getSubcategory() {
-        return subcategory;
+    public Integer getSubcategory_id() {
+        return subcategory_id;
     }
 
-    public void setSubcategory(Integer subcategory) {
-        this.subcategory = subcategory;
+    public void setSubcategory_id(Integer subcategory_id) {
+        this.subcategory_id = subcategory_id;
     }
 
     public String getName() {

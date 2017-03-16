@@ -20,11 +20,11 @@ public class Payment {
     private String name;
 
     @ManyToOne
-    @JoinColumn(name = "category_id", nullable = false)
+    @JoinColumn(name = "id_category", nullable = false)
     private Category category;
 
     @ManyToOne
-    @JoinColumn(name = "subcategory_id")
+    @JoinColumn(name = "id_subcategory")
     private Subcategory subcategory;
 
     public Integer getPayment_id() {

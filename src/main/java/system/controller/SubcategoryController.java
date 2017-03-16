@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import system.entity.Subcategory;
+import system.entity.form.SubcategoryForm;
 import system.service.SubcategoryService;
 
 import javax.validation.Valid;
@@ -17,7 +18,7 @@ public class SubcategoryController {
     private SubcategoryService subcategoryService;
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<Subcategory> save(@RequestBody @Valid Subcategory subcategory) {
+    public ResponseEntity<Subcategory> save(@RequestBody @Valid SubcategoryForm subcategory) {
         return new ResponseEntity<>(subcategoryService.save(subcategory), HttpStatus.CREATED);
     }
 
