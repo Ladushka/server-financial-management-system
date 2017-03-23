@@ -27,4 +27,7 @@ public class MoneyService {
     public void delete(Integer money_id) {
         moneyRepository.delete(money_id);
     }
+
+    public Money findByType(String type){ return moneyRepository.findByType(type);}
+
 }

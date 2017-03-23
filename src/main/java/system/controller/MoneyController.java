@@ -36,4 +36,9 @@ public class MoneyController {
         moneyService.delete(id);
         return new ResponseEntity<>(Boolean.TRUE, HttpStatus.OK);
     }
+
+    @RequestMapping(value = "/type/{type}", method = RequestMethod.GET)
+    public ResponseEntity<Money> get(@PathVariable("type") String type) {
+        return new ResponseEntity<>(moneyService.findByType(type), HttpStatus.OK);
+    }
 }
