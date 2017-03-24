@@ -14,7 +14,7 @@ public class Payment {
     private String data;
 
     @Column(name = "cost", nullable = false)
-    private Long cost;
+    private java.math.BigDecimal cost;
 
     @Column(name = "name", nullable = false)
     private String name;
@@ -43,11 +43,11 @@ public class Payment {
         this.data = data;
     }
 
-    public Long getCost() {
+    public java.math.BigDecimal getCost() {
         return cost;
     }
 
-    public void setCost(Long cost) {
+    public void setCost(java.math.BigDecimal cost) {
         this.cost = cost;
     }
 

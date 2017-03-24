@@ -4,7 +4,7 @@ public class PaymentForm {
 
     private Integer payment_id;
     private String data;
-    private Long cost;
+    private java.math.BigDecimal cost;
     private String name;
     private Integer category;
     private Integer subcategory;
@@ -25,11 +25,11 @@ public class PaymentForm {
         this.data = data;
     }
 
-    public Long getCost() {
+    public java.math.BigDecimal getCost() {
         return cost;
     }
 
-    public void setCost(Long cost) {
+    public void setCost(java.math.BigDecimal cost) {
         this.cost = cost;
     }
 

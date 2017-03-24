@@ -14,7 +14,7 @@ public class Receipt {
     private String data;
 
     @Column(name = "sum", nullable = false)
-    private Long sum;
+    private java.math.BigDecimal sum;
 
     @Column(name = "type", nullable = false)
     private String type;
@@ -38,11 +38,11 @@ public class Receipt {
         this.data = data;
     }
 
-    public Long getSum() {
+    public java.math.BigDecimal getSum() {
         return sum;
     }
 
-    public void setSum(Long sum) {
+    public void setSum(java.math.BigDecimal sum) {
         this.sum = sum;
     }
 
