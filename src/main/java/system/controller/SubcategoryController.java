@@ -37,4 +37,9 @@ public class SubcategoryController {
         subcategoryService.delete(id);
         return new ResponseEntity<>(Boolean.TRUE, HttpStatus.OK);
     }
+
+    @RequestMapping(value = "/category/{category_id}", method = RequestMethod.GET)
+    public ResponseEntity<List<Subcategory>> getByGroup(@PathVariable("category_id") Integer category_id) {
+        return new ResponseEntity<>(subcategoryService.findByCategory(category_id), HttpStatus.OK);
+    }
 }

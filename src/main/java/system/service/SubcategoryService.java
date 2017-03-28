@@ -2,6 +2,7 @@ package system.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import system.entity.Category;
 import system.entity.Subcategory;
 import system.entity.form.SubcategoryForm;
 import system.repository.CategoryRepository;
@@ -41,4 +42,9 @@ public class SubcategoryService {
         subcategoryRepository.delete(subcategory_id);
     }
 
+    public List<Subcategory> findByCategory(Integer category_id) {
+        Category category = new Category();
+        category.setCategory_id(category_id);
+        return subcategoryRepository.findByCategory(category);
+    }
 }
