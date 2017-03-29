@@ -1,5 +1,8 @@
 package system.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
@@ -14,6 +17,7 @@ public class Subcategory {
     private String name;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "id_category", nullable = false)
     private Category category;
 
