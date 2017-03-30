@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import system.entity.Payment;
+import system.entity.Subcategory;
 import system.entity.form.PaymentForm;
 import system.service.PaymentService;
 
@@ -37,4 +38,14 @@ public class PaymentController {
         paymentService.delete(id);
         return new ResponseEntity<>(Boolean.TRUE, HttpStatus.OK);
     }
+
+    @RequestMapping(value = "/category/{category_id}", method = RequestMethod.GET)
+    public ResponseEntity<List<Payment>> getByGroup(@PathVariable("category_id") Integer category_id) {
+        return new ResponseEntity<>(paymentService.findByCategory(category_id), HttpStatus.OK);
+    }
+
+//    @RequestMapping(value = "/month/{month}", method = RequestMethod.GET)
+//    public ResponseEntity<List<Payment>> getPaymentsByMonth(@PathVariable("month") Integer month) {
+//        return new ResponseEntity<>(paymentService.findPaymentsByMonth(month), HttpStatus.OK);
+//    }
 }

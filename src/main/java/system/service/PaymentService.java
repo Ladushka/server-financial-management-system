@@ -2,6 +2,7 @@ package system.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import system.entity.Category;
 import system.entity.Payment;
 import system.entity.form.PaymentForm;
 import system.repository.CategoryRepository;
@@ -48,4 +49,13 @@ public class PaymentService {
         paymentRepository.delete(payment_id);
     }
 
+    /*public List<Payment> findPaymentsByMonth(Integer month) {
+        return paymentRepository.findPaymentsByMonth(month);
+    }*/
+
+    public List<Payment> findByCategory(Integer category_id) {
+        Category category = new Category();
+        category.setCategory_id(category_id);
+        return paymentRepository.findByCategory(category);
+    }
 }
