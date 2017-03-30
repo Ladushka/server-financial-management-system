@@ -49,9 +49,9 @@ public class PaymentService {
         paymentRepository.delete(payment_id);
     }
 
-    /*public List<Payment> findPaymentsByMonth(Integer month) {
+    public List<Payment> findPaymentsByMonth(Integer month) {
         return paymentRepository.findPaymentsByMonth(month);
-    }*/
+    }
 
     public List<Payment> findByCategory(Integer category_id) {
         Category category = new Category();
