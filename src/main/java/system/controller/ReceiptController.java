@@ -36,4 +36,9 @@ public class ReceiptController {
         receiptService.delete(id);
         return new ResponseEntity<>(Boolean.TRUE, HttpStatus.OK);
     }
+
+    @RequestMapping(value = "/month/{month}", method = RequestMethod.GET)
+    public ResponseEntity<List<Receipt>> getReceiptsByMonth(@PathVariable("month") Integer month) {
+        return new ResponseEntity<>(receiptService.findReceiptsByMonth(month), HttpStatus.OK);
+    }
 }

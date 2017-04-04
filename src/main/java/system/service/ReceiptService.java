@@ -28,4 +28,7 @@ public class ReceiptService {
         receiptRepository.delete(receipt_id);
     }
 
+    public List<Receipt> findReceiptsByMonth(Integer month) {
+        return receiptRepository.findReceiptsByMonth(month);
+    }
 }
