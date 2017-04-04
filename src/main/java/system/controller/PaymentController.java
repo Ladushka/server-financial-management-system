@@ -48,4 +48,9 @@ public class PaymentController {
     public ResponseEntity<List<Payment>> getPaymentsByMonth(@PathVariable("month") Integer month) {
         return new ResponseEntity<>(paymentService.findPaymentsByMonth(month), HttpStatus.OK);
     }
+
+    @RequestMapping(value = "/month/{month}/category/{category_id}", method = RequestMethod.GET)
+    public ResponseEntity<List<Payment>> getPaymentsByMonthAndCategory(@PathVariable("month") Integer month, @PathVariable("category_id") Integer category_id) {
+        return new ResponseEntity<>(paymentService.findPaymentsByMonthAndCategory(month, category_id), HttpStatus.OK);
+    }
 }

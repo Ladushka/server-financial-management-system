@@ -58,4 +58,8 @@ public class PaymentService {
         category.setCategory_id(category_id);
         return paymentRepository.findByCategory(category);
     }
+
+    public List<Payment> findPaymentsByMonthAndCategory(Integer month, Integer category_id) {
+        return paymentRepository.findPaymentsByMonthAndCategory(month, category_id);
+    }
 }

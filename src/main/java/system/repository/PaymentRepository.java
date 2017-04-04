@@ -13,5 +13,7 @@ public interface PaymentRepository extends JpaRepository<Payment, Integer> {
 
     @Query(value = "SELECT * FROM payment p WHERE MONTH(p.data) = (:month)", nativeQuery = true)
     List<Payment> findPaymentsByMonth(@Param("month") Integer month);
-    //public List<Person> find(@Param("lastName") String lastName);
+
+    @Query(value = "SELECT * FROM payment p WHERE MONTH(p.data) = (:month) and p.id_category = :category_id", nativeQuery = true)
+    List<Payment> findPaymentsByMonthAndCategory(@Param("month") Integer month, @Param("category_id") Integer category_id);
 }
